@@ -1,0 +1,40 @@
+package com.company;
+
+import com.sun.jdi.Value;
+import com.sun.security.jgss.GSSUtil;
+import org.w3c.dom.ls.LSOutput;
+
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.*;
+//A Number is a Magic Number when ((Sum of all digits from the given number) × (reverse of the sum of digits))=. Given Number.
+public class Main {
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the number: ");
+        int number=in.nextInt();
+        int new_number=number;
+        int original_sum=0,reverse_sum=0;
+        while (number>0)
+        {
+
+            int last=number%10;
+            original_sum+=last;
+            number/=10;
+        }
+        int sum=original_sum;
+        while (original_sum>0)
+        {
+            int last=original_sum%10;
+            reverse_sum=reverse_sum*10+last;
+            original_sum/=10;
+        }
+        
+
+        System.out.println((sum*reverse_sum==new_number)?"Magic Number":"Not a Magic Number");
+
+
+
+    }
+}
+
